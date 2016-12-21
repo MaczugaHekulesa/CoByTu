@@ -13,7 +13,7 @@ namespace CoByTu
         public Rejestracja()
         {
             InitializeComponent();
-            BackgroundColor = Color.Red;
+            BackgroundColor = Color.FromHex("#d8434e");
             Content = new StackLayout()
             {
                 VerticalOptions = LayoutOptions.Center,
@@ -40,7 +40,7 @@ namespace CoByTu
         Entry login = new Entry()
         {
             Placeholder = "Login",
-            BackgroundColor = Color.Red,
+            BackgroundColor = Color.FromHex("#d8434e"),
             TextColor = Color.White,
             Opacity = 20,
             IsPassword = false,
@@ -48,7 +48,7 @@ namespace CoByTu
         Entry password = new Entry()
         {
             Placeholder = "Hasło",
-            BackgroundColor = Color.Red,
+            BackgroundColor = Color.FromHex("#d8434e"),
             TextColor = Color.White,
             Opacity = 20,
             IsPassword = true,
@@ -56,7 +56,7 @@ namespace CoByTu
         Entry repeatpassword = new Entry()
         {
             Placeholder = "Powtórz Hasło",
-            BackgroundColor = Color.Red,
+            BackgroundColor = Color.FromHex("#d8434e"),
             TextColor = Color.White,
             Opacity = 20,
             IsPassword = true,
@@ -64,7 +64,7 @@ namespace CoByTu
         Entry email = new Entry()
         {
             Placeholder = "E-mail",
-            BackgroundColor = Color.Red,
+            BackgroundColor = Color.FromHex("#d8434e"),
             TextColor = Color.White,
             Opacity = 20,
            
@@ -72,7 +72,7 @@ namespace CoByTu
         Entry repeatemail = new Entry()
         {
             Placeholder = "Powtórz E-mail",
-            BackgroundColor = Color.Red,
+            BackgroundColor = Color.FromHex("#d8434e"),
             TextColor = Color.White,
             Opacity = 20,
 

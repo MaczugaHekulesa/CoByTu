@@ -13,7 +13,7 @@ namespace CoByTu
         public Logowanie()
         {
             InitializeComponent();
-            BackgroundColor = Color.Red;
+            BackgroundColor = Color.FromHex("#d8434e");
             Content = new StackLayout()
             {
                 VerticalOptions = LayoutOptions.Center,
@@ -38,7 +38,7 @@ namespace CoByTu
         Entry login = new Entry()
         {
             Placeholder = "Login",
-            BackgroundColor = Color.Red,
+            BackgroundColor = Color.FromHex("#d8434e"),
             TextColor = Color.White,
             Opacity = 20,
             IsPassword = false,
@@ -46,7 +46,7 @@ namespace CoByTu
         Entry password = new Entry()
         {
             Placeholder = "Hasło",
-            BackgroundColor = Color.Red,
+            BackgroundColor = Color.FromHex("#d8434e"),
             TextColor = Color.White,
             Opacity = 20,
             IsPassword = true,
@@ -58,7 +58,7 @@ namespace CoByTu
         Button butface = new Button()
         {
             Text = "Zaloguj przez Facebooka",
-            BackgroundColor = Color.Blue,
+            BackgroundColor = Color.FromHex("#4c69ba")
         };
     }
 }
