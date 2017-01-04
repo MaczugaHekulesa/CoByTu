@@ -27,6 +27,10 @@ namespace CoByTu
                     butface,
                 }
             };
+            butlogin.Clicked += (sender, e) =>
+            {
+                Navigation.PushModalAsync(new AfterLogin());
+            };
 
         }
         Label header = new Label()
