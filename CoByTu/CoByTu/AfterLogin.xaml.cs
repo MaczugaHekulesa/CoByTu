@@ -10,7 +10,9 @@ namespace CoByTu
 {
     public partial class AfterLogin : ContentPage
     {
-        
+
+        //buduje strone poniżej
+
         class Meal
         {
             public Meal(string name, int cost)
@@ -24,9 +26,24 @@ namespace CoByTu
 
 
 
-        public AfterLogin()
+        public AfterLogin(bool head)
         {
+
+            Func<string, string, Label> CreateLabel = (string source, string fmt) =>
+            {
+                Label label = new Label
+                {
+                    FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
+                    HorizontalTextAlignment = TextAlignment.End
+                };
+                label.SetBinding(Label.TextProperty,
+                    new Binding(source, BindingMode.OneWay, null, null, fmt));
+
+                return label;
+            };
             BackgroundColor = Color.FromHex("#d8434e");
+            //Tu muszę zrobić podobną rzecz jak w "NamedColorPage" - Build the Page nno i chuj
+
             Label header = new Label
             {
                 Text = "Dania",
@@ -34,8 +51,11 @@ namespace CoByTu
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.Center
             };
-            List<Meal> meals = new List<Meal>
+            //jak tu nazwać jakoś tę listę, żebym mógł zaciągnąć Sourcea niżej w 75 wierszu jak nazwałem go"meals"
+            this.Content = new List<Meal> //tu jak? :(
             {
+                  {
+
                 new Meal("Kaczka", 29),
                 new Meal("Pierś z Kurczaka", 20),
                 new Meal("Ciastko", 15),
@@ -46,7 +66,10 @@ namespace CoByTu
                 new Meal("Szparagi", 20),
                 new Meal("Wołowina", 20),
 
+
+            }
             };
+        
             ListView listView = new ListView
             {
                 ItemsSource = meals,
@@ -67,7 +90,7 @@ namespace CoByTu
                            Orientation = StackOrientation.Horizontal,
                            Children =
                             {
-                                
+
                                 new StackLayout
                                 {
                                     VerticalOptions = LayoutOptions.Center,
@@ -81,9 +104,9 @@ namespace CoByTu
                             }
                        }
                    };
-                  
+
                })
-               
+
             };
             this.Content = new StackLayout
             {
@@ -93,10 +116,23 @@ namespace CoByTu
                     listView
                 }
             };
-            
-           
+            if (head)
+            {
+                Label bigLabel = new Label
+                {
+                    FontSize = 50,
+                    HorizontalOptions = LayoutOptions.Center
+                };
+                bigLabel.SetBinding(Label.TextProperty, "Name");
+                (this.Content as StackLayout).Children.Insert(0, bigLabel);
+
+
+            }
+
         }
-        
+
     }
 }
+
+
             

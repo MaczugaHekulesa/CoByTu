@@ -41,6 +41,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CaruselCategory.xaml.cs">
+      <DependentUpon>CaruselCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CaruselHeaders.xaml.cs">
+      <DependentUpon>CaruselHeaders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentToCarusel.xaml.cs">
+      <DependentUpon>ContentToCarusel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Logowanie.xaml.cs">
       <DependentUpon>Logowanie.xaml</DependentUpon>
     </Compile>
@@ -97,6 +106,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AfterLogin.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CaruselCategory.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ContentToCarusel.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CaruselHeaders.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
