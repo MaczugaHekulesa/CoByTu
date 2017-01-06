@@ -29,7 +29,7 @@ namespace CoByTu
             };
             butlogin.Clicked += (sender, e) =>
             {
-                Navigation.PushModalAsync(new ContentToCarusel());
+                Navigation.PushModalAsync(new CategoryCarouselPage());
             };
 
         }

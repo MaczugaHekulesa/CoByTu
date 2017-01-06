@@ -35,27 +35,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AfterLogin.xaml.cs">
-      <DependentUpon>AfterLogin.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CaruselCategory.xaml.cs">
-      <DependentUpon>CaruselCategory.xaml</DependentUpon>
+    <Compile Include="CategoryContentPage.xaml.cs">
+      <DependentUpon>CategoryContentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CaruselHeaders.xaml.cs">
-      <DependentUpon>CaruselHeaders.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ContentToCarusel.xaml.cs">
-      <DependentUpon>ContentToCarusel.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="CategoryCarouselPage.cs" />
+    <Compile Include="CategoryName.cs" />
     <Compile Include="Logowanie.xaml.cs">
       <DependentUpon>Logowanie.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Meal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rejestracja.xaml.cs">
       <DependentUpon>Rejestracja.xaml</DependentUpon>
@@ -105,25 +99,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AfterLogin.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="CaruselCategory.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="ContentToCarusel.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="CaruselHeaders.xaml">
+    <EmbeddedResource Include="CategoryContentPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
