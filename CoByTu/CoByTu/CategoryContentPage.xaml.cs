@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,15 @@ namespace CoByTu
 {
     public partial class CategoryContentPage : ContentPage
     {
+        readonly IList<Meal> meals = new ObservableCollection<Meal>();
+        readonly MealManager manager = new MealManager();
+
+
+
+
         public CategoryContentPage()
         {
+            BindingContext = meals;
             InitializeComponent();
 
 
@@ -33,19 +41,17 @@ namespace CoByTu
                 new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
                 new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
                 new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                        new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                          new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                            new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                              new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-
-                                  new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                                    new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                              
-                                      new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                                      new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                                  new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                    new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++)
+                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
+                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
+                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
+                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
+                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
+                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
+                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
+                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
+                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
+                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
+                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++)
 
 
             };
@@ -53,13 +59,13 @@ namespace CoByTu
             ListView listView = new ListView
             {
 
-                RowHeight = 120,
+                RowHeight = 210,
                 ItemsSource = mealList,
 
-                ItemTemplate = new DataTemplate(()  =>
+                ItemTemplate = new DataTemplate(() =>
                 {
                     Label mealName = new Label();
-                    Label mealPrice= new Label();
+                    Label mealPrice = new Label();
                     Label mealKcal = new Label();
                     Label mealWeight = new Label();
                     Label mealPhoto = new Label();
@@ -87,16 +93,36 @@ namespace CoByTu
                     };
 
                 }
-                
-                
-                
+
+
+
                 )
             };
 
 
-             (this.Content as StackLayout).Children.Insert(1, listView);
+            (this.Content as StackLayout).Children.Insert(1, listView);
 
 
+        }
+        async void OnRefresh(object sender, EventArgs e)
+        {
+            // Turn on network indicator
+            this.IsBusy = true;
+
+            try
+            {
+                var mealCollection = await manager.GetAll();
+
+                foreach (Meal meal in mealCollection)
+                {
+                    if (meals.All(b => b.MealName != meal.MealName))
+                        meals.Add(meal);
+                }
+            }
+            finally
+            {
+                this.IsBusy = false;
+            }
         }
     }
 }
