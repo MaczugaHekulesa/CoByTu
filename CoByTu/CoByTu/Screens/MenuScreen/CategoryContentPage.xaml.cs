@@ -36,6 +36,8 @@ namespace CoByTu
             InitializeComponent();
 
 
+
+
             this.Content = new StackLayout { };
 
 
