@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -35,23 +36,9 @@ namespace CoByTu
 
             (this.Content as StackLayout).Children.Insert(0, bigLabel);
 
-            int i = 0;
+            
             List<Meal> mealList = new List<Meal>{
-                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++),
-                new Meal("Danie"+i++, "Cena"+i++, "kcal"+i++, "Waga"+i++,"Foto"+i++)
+                
 
 
             };

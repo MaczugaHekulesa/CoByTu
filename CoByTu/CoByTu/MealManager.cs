@@ -18,7 +18,7 @@ namespace CoByTu
             HttpClient client = new HttpClient();
             if (string.IsNullOrEmpty(authorizationKey))
             {
-                authorizationKey = await client.GetStringAsync(Url + "login");
+                authorizationKey = await client.GetStringAsync(Url);
                 authorizationKey = JsonConvert.DeserializeObject<string>(authorizationKey);
 
             }
@@ -30,6 +30,7 @@ namespace CoByTu
         {
             HttpClient client = await GetClient();
             string result = await client.GetStringAsync(Url);
+            var meals = JsonConvert.DeserializeObject<List<Meal>>(result);
             return JsonConvert.DeserializeObject<IEnumerable<Meal>>(result);
         }
     }   
