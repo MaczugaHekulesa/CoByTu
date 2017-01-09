@@ -5,22 +5,34 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace CoByTu
 {
     public partial class CategoryContentPage : ContentPage
     {
-        readonly IList<Meal> meals = new ObservableCollection<Meal>();
-        readonly MealManager manager = new MealManager();
+        IList<Meal> meals = new ObservableCollection<Meal>();
 
+        static ListView listView;
+        
 
+        void displayData(IList<Meal> data)
+        {
+            for (int i = 0; i < data.Count; i++)
+            {
+                Debug.WriteLine(String.Join(" danie: ", i, " ", data[i]));
+            }
+        }
 
-
+      
         public CategoryContentPage()
         {
-            BindingContext = meals;
+           
+
+            //BindingContext = meals;
             InitializeComponent();
 
 
@@ -37,17 +49,11 @@ namespace CoByTu
             (this.Content as StackLayout).Children.Insert(0, bigLabel);
 
             
-            List<Meal> mealList = new List<Meal>{
-                
-
-
-            };
-
-            ListView listView = new ListView
+            listView = new ListView
             {
 
                 RowHeight = 210,
-                ItemsSource = mealList,
+                ItemsSource = meals,
 
                 ItemTemplate = new DataTemplate(() =>
                 {
@@ -60,7 +66,7 @@ namespace CoByTu
                     mealName.SetBinding(Label.TextProperty, "MealName");
                     mealPrice.SetBinding(Label.TextProperty, "MealPrice");
                     mealKcal.SetBinding(Label.TextProperty, "MealKcal");
-                    mealWeight.SetBinding(Label.TextProperty, "MealWight");
+                    mealWeight.SetBinding(Label.TextProperty, "MealWeight");
                     mealPhoto.SetBinding(Label.TextProperty, "MealPhoto");
 
                     return new ViewCell
@@ -83,33 +89,33 @@ namespace CoByTu
 
 
 
-                )
+             )
             };
 
 
             (this.Content as StackLayout).Children.Insert(1, listView);
 
 
+            Button newButton = new Button()
+            {
+                Text = "Pobierz dane"
+            };
+            newButton.Clicked += DownloadClicked;
+
+
+            (this.Content as StackLayout).Children.Insert(2, newButton);
+
+
         }
-        async void OnRefresh(object sender, EventArgs e)
+
+        static async void DownloadClicked(object sender, EventArgs e)
         {
-            // Turn on network indicator
-            this.IsBusy = true;
+            DataManager manager = new DataManager();
+            IList<Meal> list = await manager.GetAllMealsAsync();
+            listView.ItemsSource = list;
 
-            try
-            {
-                var mealCollection = await manager.GetAll();
-
-                foreach (Meal meal in mealCollection)
-                {
-                    if (meals.All(b => b.MealName != meal.MealName))
-                        meals.Add(meal);
-                }
-            }
-            finally
-            {
-                this.IsBusy = false;
-            }
         }
+
+
     }
 }
