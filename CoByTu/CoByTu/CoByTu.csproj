@@ -43,6 +43,7 @@
     </Compile>
     <Compile Include="CategoryCarouselPage.cs" />
     <Compile Include="CategoryName.cs" />
+    <Compile Include="HttpConstans.cs" />
     <Compile Include="Logowanie.xaml.cs">
       <DependentUpon>Logowanie.xaml</DependentUpon>
     </Compile>
@@ -50,11 +51,12 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Meal.cs" />
-    <Compile Include="MealManager.cs" />
+    <Compile Include="DataManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rejestracja.xaml.cs">
       <DependentUpon>Rejestracja.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Root.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
@@ -71,6 +73,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v7.0\Mono.Android.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
