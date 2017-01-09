@@ -22,6 +22,8 @@ namespace CoByTu
 
             };
 
+      
+
             this.ItemTemplate = new DataTemplate(() =>
             {
                 return new CategoryContentPage();
