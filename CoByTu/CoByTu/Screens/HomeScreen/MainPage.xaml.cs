@@ -20,17 +20,6 @@ namespace CoByTu
 
 
             BackgroundImage = "presentation_bcg_1.jpg";
-
-            Label welcome = new Label()
-            {
-                Text = "Oceniaj składniki i dodatki",
-                FontSize = 15,
-                TextColor = Color.White,
-                FontAttributes = FontAttributes.Bold,
-                HorizontalTextAlignment = Xamarin.Forms.TextAlignment.Center
-
-            };
-
             //Layout
 
             RelativeLayout relativeLayout = new RelativeLayout();
@@ -38,25 +27,25 @@ namespace CoByTu
             relativeLayout.Children.Add(login,
                 Constraint.Constant(-1),  // -1 żeby trochę była przerwa między przyciskami
                 Constraint.RelativeToParent((parent) => {
-                    return parent.Height - 58;  //normalnie powinno być -60 bo 60 to wysokość buttona, ale jest -2 żeby nie było luki od dołu ekranu (na Samsung Galaxy S7 Edge była luka)
+                    return parent.Height - 57;  //normalnie powinno być -60 bo 60 to wysokość buttona, ale jest -2 żeby nie było luki od dołu ekranu (na Samsung Galaxy S7 Edge była luka)
                 })
                 
                 /*Constraint.RelativeToParent((parent) => {
                     return parent.X * .5;
                 }),
                 Constraint.Constant(20)*/);
-
             relativeLayout.Children.Add(signup,
                 Constraint.RelativeToParent((parent) => {
                     return parent.Width * .5;
                  }),
                 Constraint.RelativeToParent((parent) => {
-                    return parent.Height - 58;
+                    return parent.Height - 57;
                 })/*,
                   Constraint.RelativeToParent((parent) => {
                       return parent.X * .5;
                   }),
                 Constraint.Constant(20)*/);
+
 
 
  
@@ -81,7 +70,7 @@ namespace CoByTu
                     new RowDefinition { Height = new GridLength (2, GridUnitType.Auto) }
                 }
             };
-            //grid.Children.Add(image, 0, 0);
+            grid.Children.Add(welcome, 0, 0);
             grid.Children.Add(image, 0, 1);
             grid.Children.Add(relativeLayout, 0, 2);
 
@@ -99,17 +88,29 @@ namespace CoByTu
             };
 
         }
-  
+        Label welcome = new Label()
+        {
+            Text = "Oceniaj składniki i dodatki",
+            FontSize = 30,
+            TextColor = Color.White,
+            FontAttributes = FontAttributes.Bold,
+            HorizontalTextAlignment = Xamarin.Forms.TextAlignment.Start,
+         
+
+        };
+
         Button login = new Button()
         {
             Text = "Logowanie",
+            FontSize= 20,
             BorderColor = Color.FromHex("#d8434e"),
             BackgroundColor = Color.FromHex("#d8434e"),
             TextColor = Color.White,
             HorizontalOptions = LayoutOptions.FillAndExpand,
-            WidthRequest = 210,
-            HeightRequest = 60
-            // VerticalOptions = LayoutOptions.EndAndExpand,
+            WidthRequest = 185,
+            HeightRequest = 60,
+            VerticalOptions = LayoutOptions.EndAndExpand,
+         
         };
 
     
@@ -118,12 +119,14 @@ namespace CoByTu
         {
 
             Text = "Rejestracja",
+            FontSize = 20,
             BackgroundColor = Color.FromHex("#d8434e"),
             BorderColor = Color.FromHex("#d8434e"),
             TextColor = Color.White,
-            WidthRequest = 210,
-            HeightRequest = 60
-            //  VerticalOptions = LayoutOptions.EndAndExpand,
+            WidthRequest = 182,
+            HeightRequest = 60,
+            VerticalOptions = LayoutOptions.EndAndExpand,
+            HorizontalOptions = LayoutOptions.FillAndExpand,
 
         };
     }

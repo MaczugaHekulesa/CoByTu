@@ -1,5 +1,4 @@
-﻿using CoByTu.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,11 +6,11 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace CoByTu
+namespace CoByTu.Views
 {
-    public partial class Logowanie : ContentPage
+    public partial class LoginPage : ContentPage
     {
-        public Logowanie()
+        public LoginPage()
         {
             InitializeComponent();
             BackgroundColor = Color.FromHex("#d8434e");

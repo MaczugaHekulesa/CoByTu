@@ -9,6 +9,8 @@ using System.IO;
 
 using Xamarin.Forms;
 using System.Diagnostics;
+using CoByTu.Data.Models;
+using CoByTu.Data;
 
 namespace CoByTu
 {
@@ -30,30 +32,22 @@ namespace CoByTu
       
         public CategoryContentPage()
         {
-           
-
             //BindingContext = meals;
             InitializeComponent();
 
-
-
-
             this.Content = new StackLayout { };
-
-
             Label bigLabel = new Label
             {
                 FontSize = 50,
                 HorizontalOptions = LayoutOptions.Center
             };
+
             bigLabel.SetBinding(Label.TextProperty, "NameOfCategory");
 
             (this.Content as StackLayout).Children.Insert(0, bigLabel);
 
-            
             listView = new ListView
             {
-
                 RowHeight = 210,
                 ItemsSource = meals,
 
@@ -87,11 +81,7 @@ namespace CoByTu
                         }
                     };
 
-                }
-
-
-
-             )
+                })
             };
 
 
@@ -113,8 +103,8 @@ namespace CoByTu
         static async void DownloadClicked(object sender, EventArgs e)
         {
             DataManager manager = new DataManager();
-            IList<Meal> list = await manager.GetAllMealsAsync();
-            listView.ItemsSource = list;
+            //IList<Maindish> list = await manager.GetMainDishMeals();
+            //listView.ItemsSource = list;
 
         }
 

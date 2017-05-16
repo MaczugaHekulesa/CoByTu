@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CoByTu.Views.MaindishPage">
+  <ContentPage.Content>
+    <StackLayout>
+      <ListView x:Name="list"
+					ItemsSource="{Binding Maindishes}"
+					BackgroundColor="Transparent"
+					SeparatorVisibility="None"
+					RowHeight="300">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <ContentView>
+                <StackLayout Orientation="Horizontal"
+                         BackgroundColor="#c46262"
+                         AbsoluteLayout.LayoutFlags="XProportional"
+                         AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize">
+                  <ContentView Padding="10,0,0,0">
+                    <StackLayout Spacing="10" >
+                      <Label Text="{Binding MealName, Mode=TwoWay}" HeightRequest="16" FontSize="16" TextColor="White" VerticalTextAlignment="End"  LineBreakMode="TailTruncation" />
+                      <Label Text="{Binding MealKcal, Mode=TwoWay}" HeightRequest="16" FontSize="16" TextColor="White" VerticalTextAlignment="End" />
+                      <Label Text="{Binding MealPrice, Mode=TwoWay}" HeightRequest="16" FontSize="16" TextColor="White" VerticalTextAlignment="End" />
+                      <Image Source="{Binding MealPhoto}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </StackLayout>
+                  </ContentView>
+                </StackLayout>
+              </ContentView>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>
