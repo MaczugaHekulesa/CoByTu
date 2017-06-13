@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CoByTu.Views.SoupView">
+  <ContentPage.Content>
+  <ListView x:Name="list"
+      ItemsSource="{Binding Soup}"
+      BackgroundColor="Transparent"
+      SeparatorVisibility="None"
+      RowHeight="300"
+        >
+
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <ContentView>
+            <Grid HeightRequest="300" BackgroundColor="#c46262" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+              <StackLayout Spacing="3" >
+                <Label Text="{Binding MealName, Mode=TwoWay}" HeightRequest="16" FontSize="16"  TextColor="White" VerticalTextAlignment="End" HorizontalTextAlignment="Center"  LineBreakMode="TailTruncation" />
+                <Label Text="{Binding MealKcal, Mode=TwoWay}" HeightRequest="16" FontSize="16" TextColor="White" VerticalTextAlignment="End" HorizontalTextAlignment="Center" />
+                <Label Text="{Binding MealPrice, Mode=TwoWay}" HeightRequest="16" FontSize="16" TextColor="White" VerticalTextAlignment="End" HorizontalTextAlignment="Center" />
+                <Image Source="{Binding MealPhoto}" HorizontalOptions="Center" VerticalOptions="Center" />
+              </StackLayout>
+            </Grid>
+          </ContentView>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+  </ContentPage.Content>
+</ContentPage>

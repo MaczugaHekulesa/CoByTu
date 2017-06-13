@@ -12,7 +12,7 @@ namespace CoByTu.Data
     public class DataManager
     {
         #region Const
-        public const string AllMealsURL = "http://www.cobytu.com/cbt.php?d=j_przegladaj_dania5&uz=Darek";
+        public const string AllMealsURL = " http://www.cobytu.com/cbt.php?d=j_przegladaj_dania5&woj=wielkopolskie&next=100";
         public const string PhotoPath = "http://cobytu.com/foto/";
         #endregion
 
@@ -48,10 +48,8 @@ namespace CoByTu.Data
                     tempMealjsonObj.GetString("waga"),
                     PhotoPath + tempMealjsonObj.GetString("da_foto"),
                     tempMealjsonObj.GetString("da_kategoria"));
-
                 list.Add(tempMeal);
             }
-
             return list;
         }
 

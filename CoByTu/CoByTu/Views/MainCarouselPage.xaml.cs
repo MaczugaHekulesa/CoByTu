@@ -12,11 +12,13 @@ namespace CoByTu.Views
 {
     public partial class MainCarouselPage : CarouselPage
     {
+        
         public MainCarouselPage()
-        {
+        {   
             InitializeComponent();
             this.Children.Add(new MaindishPage());
             this.Children.Add(new DrinksPage());
+            this.Children.Add(new SoupView());
         }
     }
 }

@@ -33,3 +33,10 @@ namespace CoByTu.ViewModel
         }
     }
 }
+public interface IFileHelper
+{
+    string GetLocalFilePath(string filename);
+}
+
+
+ 

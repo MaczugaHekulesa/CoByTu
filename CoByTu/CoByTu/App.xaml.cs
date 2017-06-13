@@ -16,6 +16,8 @@ namespace CoByTu
             nav.Configure(ViewModelLocator.MainCarouselPage, typeof(MainCarouselPage));
             nav.Configure(ViewModelLocator.DrinksPage, typeof(DrinksPage));
             nav.Configure(ViewModelLocator.MaindishPage, typeof(MaindishPage));
+            nav.Configure(ViewModelLocator.SoupView, typeof(SoupView));
+
 
             SimpleIoc.Default.Register<INavigationService>(() => nav);
 
